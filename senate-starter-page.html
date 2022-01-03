@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style/style.css">
+  <title>Senate</title>
+  <link rel="shortcut icon" href="./favicon.png">
+</head>
+
+<body>
+
+  <header>
+    <a href="./home-starter-page.html" id="title">
+      <img id="logo" src="https://datainsightgroup.ca/wp-content/uploads/2021/05/TLI_Dig_outlline_RGB_final.jpg"
+        alt="Data Insight Group">
+    </a>
+
+    <div id="correo">
+      <a href="mailto:info@datainsightgroup.net"> <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+          fill="currentColor" class="bi bi-envelope-check-fill" viewBox="0 0 16 16">
+          <path
+            d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.026A2 2 0 0 0 2 14h6.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586l-1.239-.757ZM16 4.697v4.974A4.491 4.491 0 0 0 12.5 8a4.49 4.49 0 0 0-1.965.45l-.338-.207L16 4.697Z" />
+          <path
+            d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686Z" />
+        </svg>&nbsp; info@datainsightgroup.net </a>
+    </div>
+  </header>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid ">
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ">
+          <li class="nav-item"><a class="nav-link" href="./home-starter-page.html">Home</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Congress113
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="./senate-starter-page.html">Senate</a></li>
+              <li><a class="dropdown-item" href="./house-starter-page.html">House</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Attendance
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="./senate-attendance.html">Senate</a></li>
+              <li><a class="dropdown-item" href="./house-attendance.html">House</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Party Loyalty
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="./senate-party-loyalty.html">Senate</a></li>
+              <li><a class="dropdown-item" href="./house-party-loyalty.html">House</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Senators</h2>
+      <p>First convened in 1789, the composition and powers of the Senate are established in Article One of the
+        U.S. Constitution. Each state is represented by two senators, regardless of population, who serve
+        staggered six-year terms. The Senate has several exclusive powers not granted to the House, including
+        consenting to treaties as a precondition to their ratification and consenting to or confirming
+        appointments of Cabinet secretaries, federal judges, other federal executive officials, military
+        officers, regulatory officials, ambassadors, and other federal uniformed officers, as well as trial of
+        federal officials impeached by the House.</p>
+    </section>
+
+    <form id="form">
+      <div class="form-check form-switch form-check-inline">
+        <label class="form-check-label" for="democrats">
+          <input class="form-check-input" type="checkbox" id="democrats" value="D"  v-model="party"  checked> Democrats</label>
+      </div>
+      <div class="form-check form-switch form-check-inline">
+        <label class="form-check-label" for="republicans">
+          <input class="form-check-input" type="checkbox" id="republicans" value="R"  v-model="party" checked> Republicans</label>
+      </div>
+      <div class="form-check form-switch form-check-inline">
+        <label class="form-check-label" for="independents">
+          <input class="form-check-input " type="checkbox" id="independents" value="ID"  v-model="party" checked> Independents</label>
+      </div>
+      <select v-model="select" class="form-select" name="state" id="selectState">
+        <option value="all" selected>All states</option>
+        <option v-for="state in optionsState" :value="state"> {{state}} </option>
+      </select>
+    </form>
+
+    <table class="table table-hover table-bordered border-primary">
+      <thead class="table-dark">
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Party</th>
+          <th>State</th>
+          <th>Years in Officce</th>
+          <th>% Votes w/ Party</th>
+          <th>Total votes</th>
+        </tr>
+      </thead>
+      <tbody id="tableData">
+        <tr v-for="(m, index) in filterMembers">
+          <td> {{index + 1}} </td>
+          <td> <a target="_blank" v-bind:href="m.url">
+              <template v-if="m.middle_name">
+                {{m.last_name}}, {{m.first_name}} {{m.middle_name}}
+              </template>
+              <template v-else>
+                {{m.last_name}}, {{m.first_name}}
+              </template>
+            </a></td>
+          <td> {{m.party}} </td>
+          <td> {{m.state}} </td>
+          <td> {{m.seniority}} </td>
+          <td> %{{m.votes_against_party_pct}} </td>
+          <td>{{m.total_votes}} </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </main>
+
+  <footer>
+    <p id="texto-footer">@2021 Data Insight Group | All Rights Reserved</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <!-- <script src="./scripts/pro-congress-113-senate.js"></script> -->
+  <script src="./scripts/starter-page.js"></script>
+</body>
+
+</html>

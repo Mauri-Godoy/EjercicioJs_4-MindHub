@@ -1,0 +1,52 @@
+#logo {
+    width      : 10vh;
+    margin-left: 1rem;
+}
+
+main {
+    padding  : 1rem;
+    display  : flex;
+    flex-wrap: wrap;
+}
+
+header,
+form {
+    display        : flex;
+    align-items    : center;
+    justify-content: space-between;
+    padding        : 1rem;
+}
+
+a {
+    text-decoration: none;
+    color          : #000;
+    display        : inherit;
+}
+
+
+footer {
+    display         : flex;
+    justify-content : flex-end;
+    align-items     : center;
+    padding         : 1rem;
+    background-color: #212529;
+    color           : #fff;
+    position        : relative;
+    top             : 18vh;
+    width           : 100%;
+}
+
+#correo {
+    display: flex;
+    padding: 1rem;
+}
+
+#section,
+.table-css {
+    width : 48%;
+    margin: .8rem;
+}
+
+#navbarNavDropdown {
+    display: flex;
+}
